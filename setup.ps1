@@ -122,6 +122,17 @@ if (Py313) {
   }
 }
 
+# ---------- §9 prep: Projects folder for cloning repos ----------
+# C:\Users\<me>\Projects — in the user profile, outside OneDrive (per SOP §9).
+Head "Projects folder"
+$projects = Join-Path $env:USERPROFILE "Projects"
+if (Test-Path $projects -PathType Container) { Ok "$projects exists" }
+elseif ($Check) { Todo "$projects missing" }
+else {
+  try { New-Item -ItemType Directory -Path $projects -ErrorAction Stop | Out-Null; Ok "Created $projects" }
+  catch { Fail "Create $projects" }
+}
+
 # ---------- §6 Inventory report ----------
 if (-not $Check) {
   Head "§6 Computer inventory report"
@@ -157,5 +168,6 @@ else { Ok "Everything the script can do is done." }
   [ ] In Chrome sign into GitHub (tunaflyby), ChatGPT, Claude, Notion, Drive, Dropbox
   [ ] VS Code -> Accounts -> Backup and Sync Settings -> sign in with GitHub tunaflyby
   [ ] Run setup-check\hello.py in VS Code (Select Interpreter first)
+  [ ] To clone a repo: VS Code -> Git: Clone -> choose %USERPROFILE%\Projects (not OneDrive)
   [ ] Attach the computer-inventory-*.txt report to this computer's Notion Assets record
 "@
