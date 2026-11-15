@@ -11,7 +11,7 @@ Python and never touches repositories or secrets.
 
 ## Run it
 
-**Kubuntu / macOS** (Konsole or Terminal):
+**Kubuntu / Fedora / macOS** (Konsole or Terminal):
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tunaflyby/dev-setup/main/setup.sh | bash
