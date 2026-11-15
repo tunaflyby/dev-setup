@@ -237,6 +237,16 @@ if has "$PY"; then
 fi
 
 # =====================================================================
+# §9 prep  Projects folder for cloning repos (Linux)
+# =====================================================================
+if [[ $OS == linux ]]; then
+  bold "Projects folder"
+  if [[ -d "$HOME/Projects" ]]; then ok "~/Projects exists"
+  elif $CHECK_ONLY; then todo "~/Projects missing"
+  else mkdir -p "$HOME/Projects" && ok "Created ~/Projects" || fail "Create ~/Projects"; fi
+fi
+
+# =====================================================================
 # §6  Inventory snapshot (same contents as the SOP's §6 block)
 # =====================================================================
 if ! $CHECK_ONLY; then
@@ -288,5 +298,6 @@ cat <<'EOF'
   [ ] In Chrome sign into GitHub (tunaflyby), ChatGPT, Claude, Notion, Drive, Dropbox
   [ ] VS Code → Accounts → Backup and Sync Settings → sign in with GitHub tunaflyby
   [ ] Run ~/setup-check/hello.py in VS Code (Select Interpreter first)
+  [ ] To clone a repo: VS Code → Git: Clone → choose ~/Projects (Linux)
   [ ] Attach the computer-inventory-*.txt report to this computer's Notion Assets record
 EOF

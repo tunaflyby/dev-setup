@@ -40,4 +40,5 @@ curl -fsSL https://raw.githubusercontent.com/tunaflyby/dev-setup/main/setup.sh |
 - GitHub (tunaflyby), ChatGPT, Claude, Notion, Drive, Dropbox sign-ins
 - VS Code → Backup and Sync Settings
 - Run `~/setup-check/hello.py` in VS Code
+- Clone repos with VS Code → Git: Clone into `~/Projects` (created automatically on Linux)
 - Attach the inventory report to the computer's Notion Assets record
